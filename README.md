@@ -87,6 +87,12 @@ Klar, mach nen Fork, bau dein Feature ein oder baller direkt ’nen Pull Request
 
 **Let’s go, spar dir den Stress – behalte den Überblick.**
 
+## ☕ Unterstütze das Projekt
+
+Wenn dir dieses Projekt gefällt und du es unterstützen möchtest:
+
+[![Jetzt spenden](https://img.shields.io/badge/PayPal-Spende-blau.svg?logo=paypal)](https://www.paypal.com/donate/?hosted_button_id=A6JNPQ6PZJMTS)
+
 ## 🖼️ Vorschau
 
 Hier siehst du einen kleinen Einblick in die Finanzübersicht:
@@ -98,4 +104,3 @@ Hier siehst du einen kleinen Einblick in die Finanzübersicht:
 <img src="https://raw.githubusercontent.com/kevinkiwi14/Finanzverwaltung/main/img/Screenshot3.png" width="600" alt="Screenshot 3">
 <br>
 <img src="https://raw.githubusercontent.com/kevinkiwi14/Finanzverwaltung/main/img/Screenshot4.png" width="600" alt="Screenshot 4">
-
