@@ -86,3 +86,16 @@ Klar, mach nen Fork, bau dein Feature ein oder baller direkt ’nen Pull Request
 ---
 
 **Let’s go, spar dir den Stress – behalte den Überblick.**
+
+## 🖼️ Vorschau
+
+Hier siehst du einen kleinen Einblick in die Finanzübersicht:
+
+<img src="https://raw.githubusercontent.com/DEINNAME/DEINREPO/main/img/Screenshot1.png" width="600" alt="Screenshot 1">
+<br>
+<img src="https://raw.githubusercontent.com/DEINNAME/DEINREPO/main/img/Screenshot2.png" width="600" alt="Screenshot 2">
+<br>
+<img src="https://raw.githubusercontent.com/DEINNAME/DEINREPO/main/img/Screenshot3.png" width="600" alt="Screenshot 3">
+<br>
+<img src="https://raw.githubusercontent.com/DEINNAME/DEINREPO/main/img/Screenshot4.png" width="600" alt="Screenshot 4">
+
