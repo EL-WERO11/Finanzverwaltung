@@ -100,11 +100,26 @@ Hier ein paar Screenshots deiner zukünftigen Finanzzentrale:
 
 ---
 
+## 🧩 Geplante Features & Updates
+
+Wir ruhen uns nicht aus – folgende Dinge sollen noch kommen:
+
+- 🔐 **Erweiterte Sicherheit** mit Passwort-Hashing, Login-Sperren & Session-Checks
+- 🌈 **Farb-Auswahl-System**: Farben & Darkmode nach Wunsch umstellen
+- 📊 **Statistiken & Diagramme** für Einnahmen, Ausgaben & Sparziele
+- 🧠 **Künstliche Intelligenz-Vorschläge** (z. B. zum Sparen)
+- 🛎️ **Benachrichtigungen**, wenn Ausgaben fällig sind
+- 👥 **Mehrbenutzer-Unterstützung** (z. B. für Familie oder Team)
+- ☁️ **Export-Funktion** für PDF oder CSV
+- 🎨 **Design-Editor** für Farben, Icons & Layout
+
+---
+
 ## 🤘 Sonst noch was?
 
-- Kein Composer 🎻
-- Kein Framework-Dschungel 🌴
-- Kein Login-Spam ✉️
+- Kein Composer 🎻  
+- Kein Framework-Dschungel 🌴  
+- Kein Login-Spam ✉️  
 - Und läuft auch auf dem Handy! 📱✅
 
 Einfach pures PHP – wie in den guten alten Tagen.
