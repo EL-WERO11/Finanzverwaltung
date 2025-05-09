@@ -1,0 +1,1111 @@
+:root {
+    --primary: #4f46e5;          /* Indigo */
+    --primary-dark: #4338ca;
+    --primary-light: #6366f1;
+    --secondary: #9333ea;        /* Violett */
+    --accent: #db2777;           /* Pink */
+    --danger: #ef4444;           /* Rot */
+    --success: #10b981;          /* Grün */
+    --warning: #f59e0b;          /* Gelb/Orange */
+    --info: #3b82f6;             /* Blau */
+    --light: #f9fafb;            /* Sehr helles Grau */
+    --dark: #111827;             /* Sehr dunkles Grau */
+    --gray: #6b7280;             /* Mittelgrau */
+    --gray-light: #e5e7eb;       /* Helles Grau */
+    --white: #ffffff;
+
+    --background: #f3f4f6;       /* Helles Grau mit leichter Wärme */
+    --card-bg: #ffffff;
+    --text: #1f2937;             /* Fast Schwarz, aber weicher */
+    --text-light: #9ca3af;       /* Blasseres Grau */
+
+    --shadow-sm: 0 1px 3px rgba(0,0,0,0.05);
+    --shadow-md: 0 4px 6px rgba(0,0,0,0.1);
+    --shadow-lg: 0 10px 15px rgba(0,0,0,0.15);
+    
+    --border-radius: 12px;
+    --border-radius-sm: 8px;
+}
+
+/* Dark Mode Variablen */
+.dark-mode {
+    --background: #121826;
+    --text: #e5e7eb;
+    --card-bg: #1e293b;
+    --gray-light: #334155;
+    --primary: #8b5cf6;
+    --primary-dark: #7c3aed;
+    --primary-light: #a78bfa;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Outfit', sans-serif;
+}
+
+#monthlyChart {
+  width: 100%;
+  height: 100%;
+}
+.chart-container {
+  width: 100%;
+  height: 300px;
+  position: relative;
+}
+
+body {
+    background-color: var(--background);
+    color: var(--text);
+    line-height: 1.6;
+    font-size: 16px;
+    min-height: 100vh;
+    -webkit-text-size-adjust: 100%; /* Verhindert automatische Textvergrößerung auf iOS */
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 16px;
+    padding-bottom: 80px;
+}
+
+/* Überschriften */
+h1, h2, h3, h4 {
+    color: var(--primary);
+    margin-bottom: 16px;
+    font-weight: 600;
+}
+
+h1 {
+    font-size: 24px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+h2 {
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+h3 {
+    font-size: 18px;
+}
+
+h4 {
+    font-size: 16px;
+    color: var(--text);
+}
+
+.collapsible-table {
+    display: none;
+    transition: all 0.3s ease;
+}
+
+.collapsible-wrapper {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease;
+}
+
+.collapsible-wrapper.active {
+    max-height: 1000px; /* groß genug für den Inhalt */
+}
+
+.collapsible-table.active {
+    display: table;
+}
+
+/* Monatsdetails - Beschreibungstext */
+.table-description {
+    font-size: 14px;
+    color: var(--text-light);
+    margin-bottom: 10px;
+	margin: 10px 0 5px 0;
+	text-align: center;
+}
+
+/* Monatsdetails: collapsible summary */
+.monthly-details summary {
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--primary);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 0;
+    transition: color 0.2s ease;
+}
+
+.monthly-details summary:hover {
+    color: var(--primary-dark);
+}
+
+/* Monatszeilen */
+.month-details {
+    margin-top: 10px;
+}
+
+/* Karten-Stil */
+.card {
+	background: rgba(255, 255, 255, 0.9); /* Fallback */
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-md);
+    padding: 20px;
+    margin-bottom: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: all 0.3s ease;
+}
+
+.dark-mode .card {
+    background: rgba(30, 41, 59, 0.95);
+    color: var(--text);
+}
+
+@supports (backdrop-filter: blur(10px)) {
+  .card {
+    background: rgba(255, 255, 255, 0.6);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+  }
+}
+
+/* Für Firefox Scrollbar */
+html {
+  scrollbar-width: thin;
+  scrollbar-color: var(--primary) var(--gray-light);
+}
+
+/* Für Webkit-Browser (Chrome, Safari) */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--gray-light);
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--primary);
+  border-radius: 4px;
+}
+
+.card:hover {
+    box-shadow: var(--shadow-md);
+    transform: translateY(-2px);
+}
+
+/* Formularelemente */
+.form-group {
+    margin-bottom: 16px;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+    color: var(--text);
+    font-size: 14px;
+}
+
+input {
+  appearance: none;
+  background: transparent;
+  height: 1px;
+}
+
+
+input, select {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid var(--gray-light);
+    border-radius: var(--border-radius-sm);
+    font-size: 16px;
+    transition: all 0.3s ease;
+    background-color: var(--card-bg);
+}
+
+input:focus, select:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 2px var(--primary-light);
+}
+
+/* Tabellen-Styles */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    font-size: 14px;
+    background: var(--card-bg);
+    border-radius: var(--border-radius);
+    overflow: hidden;
+}
+
+th, td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid var(--gray-light);
+}
+
+th {
+    background-color: var(--primary);
+    color: var(--white);
+    font-weight: 500;
+    position: sticky;
+    top: 0;
+}
+
+tr:hover {
+    background-color: rgba(67, 97, 238, 0.05);
+}
+
+/* Spezielle Styles für die neuen Tabellen */
+.expenses-section {
+    margin-bottom: 25px;
+    background: var(--card-bg);
+    border-radius: var(--border-radius);
+    padding: 20px;
+    box-shadow: var(--shadow-sm);
+}
+
+.expenses-section h4 {
+    margin-top: 0;
+    margin-bottom: 15px;
+    color: var(--text);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.expenses-section h4 i {
+    color: var(--primary);
+}
+
+#current-month-name, #next-month-name {
+    color: var(--primary);
+    font-weight: 600;
+}
+
+/* Zeilen-Highlighting */
+.due-today {
+    background-color: rgba(244, 67, 54, 0.08) !important;
+    border-left: 3px solid var(--danger);
+}
+
+.due-soon {
+    background-color: rgba(255, 152, 0, 0.08);
+}
+
+/* Gesamtzeilen */
+.upcoming-total {
+    background-color: rgba(255, 152, 0, 0.1);
+    font-weight: bold;
+}
+
+.upcoming-total td {
+    padding: 15px;
+    border-top: 2px solid var(--primary-light);
+}
+
+.total-label-content {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 8px;
+}
+
+.total-amount {
+    font-weight: 700;
+    text-align: right;
+}
+
+/* Keine Einträge */
+.no-expenses {
+    text-align: center;
+}
+
+.no-expenses-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 20px;
+    color: var(--text-light);
+}
+
+.no-expenses i {
+    font-size: 1.2em;
+}
+
+/* Summary Container */
+.summary {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 16px;
+    align-items: stretch; /* wichtig! */
+}
+
+/* Summary Items */
+.summary-item {
+    background: var(--card-bg);
+    border-radius: var(--border-radius);
+    padding: 20px;
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--gray-light);
+    transition: all 0.3s ease;
+    min-height: 120px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+	text-align: center;
+    align-items: center;
+	height: 100%;
+}
+
+.summary-item {
+    margin-bottom: 0;
+	min-height: 160px;
+}
+
+.summary-item p small {
+    display: block;
+    font-size: 13px;
+    opacity: 0.8;
+    margin-top: 6px;
+    text-align: center;
+}
+
+.dark-mode .summary-item {
+    background: var(--card-bg);
+    border-color: var(--gray-light);
+}
+
+.summary-item:hover {
+    box-shadow: var(--shadow-md);
+    transform: translateY(-2px);
+}
+
+/* Spezifische Stile für die verschiedenen Summary-Typen */
+.summary-item.income {
+    border-left: 4px solid var(--success);
+    background-color: rgba(16, 185, 129, 0.1);
+}
+
+.summary-item.expense {
+    border-left: 4px solid var(--danger);
+    background-color: rgba(239, 68, 68, 0.1);
+}
+
+.summary-item.upcoming {
+    border-left: 4px solid var(--warning);
+    background-color: rgba(245, 158, 11, 0.1);
+}
+
+.summary-item.savings {
+    border-left: 4px solid var(--info);
+    background-color: rgba(59, 130, 246, 0.1);
+}
+
+.summary-item.balance-positive {
+    border-left: 4px solid var(--success);
+    background-color: rgba(16, 185, 129, 0.2);
+}
+
+.summary-item.balance-negative {
+    border-left: 4px solid var(--danger);
+    background-color: rgba(239, 68, 68, 0.2);
+}
+
+/* Vollbreite Elemente (z.B. Monatsdetails) */
+.summary-item.full-width {
+    grid-column: 1 / -1;
+    width: 100%;
+}
+
+.summary-item.full-width details {
+    width: 100%;
+}
+
+.planned-savings {
+    color: var(--info);
+}
+
+/* Inhalte der Summary-Items */
+.summary-item h3 {
+    margin-bottom: 12px;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    text-align: center;
+}
+
+.summary-item p {
+    font-size: 24px;
+    font-weight: 600;
+    margin: 0;
+    text-align: center;
+}
+
+.summary-item small {
+    font-size: 12px;
+    opacity: 0.8;
+    display: block;
+    margin-top: 4px;
+}
+
+/* Tabs Navigation */
+.tabs-container {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    margin-bottom: 20px;
+    background: var(--card-bg);
+    border-radius: var(--border-radius);
+    padding: 8px;
+    scrollbar-width: none; /* Firefox */
+}
+
+.tabs-container::-webkit-scrollbar {
+    display: none; /* Chrome/Safari */
+}
+
+.tabs {
+    display: flex;
+    gap: 8px;
+    padding-bottom: 8px;
+    min-width: fit-content;
+}
+
+.tab {
+    padding: 12px 16px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: var(--border-radius-sm);
+    cursor: pointer;
+    white-space: nowrap;
+    font-size: 14px;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-shrink: 0;
+}
+
+.tab.active {
+    background: var(--primary);
+    color: white;
+}
+
+.tab i {
+    font-size: 16px;
+    transition: all 0.2s ease;
+}
+
+.tab.active i {
+    transform: scale(1.1);
+}
+
+.tab-content {
+    display: none;
+    animation: fadeIn 0.3s ease;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+/* Animationen */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInScale {
+    from { opacity: 0; transform: scale(0.95); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+/* Mobile Menü */
+.mobile-header {
+    display: none;
+}
+
+.mobile-menu-btn {
+    display: none;
+    background: var(--primary);
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 4px;
+    font-size: 20px;
+    margin-bottom: 16px;
+}
+
+/* Dark Mode Toggle Button */
+.dark-toggle-btn {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: var(--primary);
+    color: white;
+    border: none;
+    padding: 10px 16px;
+    border-radius: var(--border-radius-sm);
+    cursor: pointer;
+    z-index: 1000;
+    box-shadow: var(--shadow-md);
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.dark-toggle-btn:hover {
+    background: var(--primary-dark);
+    transform: translateY(-1px);
+}
+
+/* Logout Button */
+.logout-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: var(--danger);
+    color: var(--white);
+    padding: 12px;
+    border-radius: 50%;
+    text-decoration: none;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: var(--shadow-md);
+    z-index: 100;
+    transition: all 0.3s ease;
+}
+
+.logout-btn:hover {
+    background: #e5177b;
+    transform: scale(1.1);
+}
+
+/* Alert-Nachrichten */
+.alert {
+    position: fixed;
+    bottom: 80px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 12px 24px;
+    border-radius: 8px;
+    color: white;
+    z-index: 1001;
+    animation: fadeIn 0.3s;
+    max-width: 90%;
+    width: 300px;
+    text-align: center;
+    box-shadow: var(--shadow-md);
+}
+
+.alert-error { 
+    background-color: var(--danger); 
+}
+
+.alert-success { 
+    background-color: var(--success); 
+}
+
+input[type="color"] {
+  width: 50px;
+  height: 30px;
+  border: none;
+  padding: 0;
+  background: none;
+  cursor: pointer;
+  appearance: auto; /* Wichtig! */
+}
+
+input, select, textarea {
+    width: 100%;
+    height: 1px; /* oder sehr klein */
+    background-color: transparent;
+    border: none;
+}
+
+/* Formular-Eingaben für mobile Geräte optimiert */
+input[type="date"],
+input[type="number"],
+input[type="text"],
+select {
+    min-height: 44px; /* Größerer Touch-Bereich */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+
+/* Responsive Anpassungen */
+@media (max-width: 768px) {
+    .container {
+        padding: 12px;
+    }
+    
+    .expenses-section {
+        padding: 15px;
+    }
+    
+    th, td {
+        padding: 10px 8px;
+        font-size: 13px;
+    }
+    
+    h1 {
+        font-size: 20px;
+    }
+    
+    h2 {
+        font-size: 18px;
+    }
+    
+    h3 {
+        font-size: 16px;
+    }
+    
+    h4 {
+        font-size: 15px;
+    }
+    
+    .summary {
+        grid-template-columns: 1fr 1fr;
+    }
+    
+    .summary-item p {
+        font-size: 20px;
+    }
+    
+    .mobile-header {
+        display: block;
+    }
+    
+    .mobile-menu-btn {
+        display: block;
+    }
+    
+    .tabs-container {
+        position: fixed;
+        top: 0;
+        left: -100%;
+        width: 80%;
+        height: 100vh;
+        background: var(--card-bg);
+        box-shadow: var(--shadow-lg);
+        padding: 20px;
+        transition: all 0.3s ease;
+        z-index: 999;
+        overflow-y: auto;
+    }
+    
+    .tabs-container.active {
+        left: 0;
+    }
+    
+    .tabs {
+        flex-direction: column;
+    }
+    
+    .tab {
+        width: 100%;
+        justify-content: flex-start;
+    }
+    
+    .tab-text {
+        display: inline;
+    }
+    
+    .dark-toggle-btn {
+        top: 15px;
+        right: 15px;
+        padding: 8px 12px;
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        font-size: 14px;
+    }
+    
+    .container {
+        padding: 10px;
+    }
+    
+    .expenses-section {
+        padding: 12px;
+    }
+    
+    table {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+    
+    h1 {
+        font-size: 18px;
+    }
+    
+    h2 {
+        font-size: 16px;
+    }
+    
+    h3 {
+        font-size: 15px;
+    }
+    
+    .summary {
+        grid-template-columns: 1fr;
+    }
+    
+    .summary-item {
+        padding: 12px;
+    }
+	
+	.summary-item {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    min-height: 140px; /* etwas mehr als vorher */
+    padding: 20px;
+	}
+    
+	.summary-item p {
+		font-size: 26px;
+		font-weight: 600;
+		margin: 8px 0;
+	}
+    
+    input, select {
+        padding: 10px;
+        font-size: 14px;
+    }
+    
+    button, .btn-primary, .btn-danger {
+        padding: 12px;
+        font-size: 14px;
+    }
+    
+    .logout-btn {
+        width: 40px;
+        height: 40px;
+        bottom: 15px;
+        right: 15px;
+    }
+    
+    .tabs-container {
+        width: 85%;
+        padding: 15px;
+    }
+    
+    .mobile-menu-btn {
+        font-size: 18px;
+        padding: 8px;
+    }
+}
+
+@media (max-width: 360px) {
+    body {
+        font-size: 13px;
+    }
+    
+    .container {
+        padding: 8px;
+    }
+    
+    .card {
+        padding: 12px;
+    }
+    
+    .dark-toggle-btn {
+        padding: 6px 10px;
+        font-size: 12px;
+    }
+}
+
+/* Edge-spezifische Fixes */
+@supports (-ms-ime-align:auto) {
+    .tabs-container {
+        overflow-x: scroll;
+    }
+    
+    .tab {
+        flex-shrink: 0;
+    }
+}
+
+/* Farbliche Hervorhebungen */
+.positive {
+    color: var(--success);
+    font-weight: bold;
+}
+
+.negative {
+    color: var(--danger);
+    font-weight: bold;
+}
+
+.upcoming-amount {
+    color: var(--warning);
+    font-weight: bold;
+}
+
+.warning {
+    color: var(--warning);
+}
+
+.month-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 8px;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--gray-light);
+    text-align: center;
+    font-size: 14px;
+    align-items: center;
+}
+
+.month-details,
+.month-row {
+    color: var(--text); /* dunkel statt weiß */
+}
+
+.month-row.header {
+    font-weight: 600;
+    color: var(--text-light);
+    background: var(--gray-light);
+    border-radius: var(--border-radius-sm);
+}
+
+.month-row:last-child {
+    border-bottom: none;
+}
+
+/* Farbliche Hervorhebung */
+.month-row .positive {
+    color: var(--success);
+    font-weight: 600;
+}
+
+.month-row .negative {
+    color: var(--danger);
+    font-weight: 600;
+}
+
+.balance-positive {
+    background-color: rgba(16, 185, 129, 0.05);
+}
+
+.balance-negative {
+    background-color: rgba(239, 68, 68, 0.05);
+}
+
+.delete-btn {
+    background-color: #ef4444;
+    color: white;
+    border: none;
+    padding: 6px;
+    border-radius: 8px;
+    font-size: 14px;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s ease, transform 0.2s ease;
+    width: 32px;
+    height: 32px;
+}
+
+.delete-btn:hover {
+    background-color: #c53030;
+    transform: scale(1.1);
+}
+
+.delete-btn i {
+    font-size: 16px;
+    pointer-events: none;
+}
+
+#categories-table td:last-child {
+    text-align: center;
+}
+
+.delete-button {
+    background-color: var(--danger);
+    color: white;
+    border: none;
+    padding: 8px 14px;
+    border-radius: 999px;
+    font-size: 14px;
+    font-weight: 500;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    cursor: pointer;
+    transition: background 0.2s ease;
+    box-shadow: var(--shadow-sm);
+}
+
+.delete-button:hover {
+    background-color: #c53030;
+    box-shadow: var(--shadow-md);
+}
+
+.delete-button i {
+    font-size: 16px;
+    pointer-events: none;
+}
+
+.edit-button {
+    background-color: var(--warning);  /* z. B. Orange-Gelb */
+    color: white;
+    border: none;
+    padding: 8px 14px;
+    border-radius: 999px;
+    font-size: 14px;
+    font-weight: 500;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    cursor: pointer;
+    transition: background 0.2s ease;
+    box-shadow: var(--shadow-sm);
+}
+
+.edit-button:hover {
+    background-color: #d97706; /* dunkleres Orange */
+    box-shadow: var(--shadow-md);
+}
+
+.edit-button i {
+    font-size: 16px;
+    pointer-events: none;
+}
+
+
+.icon-btn {
+    background: transparent;
+    color: var(--danger);
+    border: none;
+    font-size: 18px;
+    cursor: pointer;
+    padding: 6px;
+    border-radius: 50%;
+    transition: color 0.2s ease, background 0.2s ease;
+}
+
+.icon-btn:hover {
+    background: rgba(239, 68, 68, 0.1);
+    color: #c53030;
+}
+
+.edit-btn {
+    background: transparent;
+    color: var(--warning);
+    border: none;
+    font-size: 18px;
+    cursor: pointer;
+    padding: 6px;
+    border-radius: 50%;
+    transition: color 0.2s ease, background 0.2s ease;
+    margin-right: 6px;
+}
+
+
+.edit-btn:hover {
+    background: rgba(245, 158, 11, 0.1);
+    color: #d97706;
+}
+
+/* Standard: zusammengeklappt – wenig Rand */
+.monthly-details {
+	width: 100%;
+    display: block;
+    padding: 6px 10px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: var(--border-radius);
+    box-shadow: none;
+    transition: all 0.3s ease;
+    color: var(--text); /* Damit die Schrift nicht weiß auf hellgrau ist */
+	box-shadow: none;
+}
+
+/* Geöffnet: mehr Platz für Inhalt */
+.monthly-details[open] {
+    box-shadow: var(--shadow-md);
+    background: var(--card-bg);
+    padding: 20px;
+}
+
+/* Neue Icon-Styles */
+.icon-lg {
+    font-size: 1.5em;
+    margin-right: 8px;
+}
+
+.icon-md {
+    font-size: 1.2em;
+    margin-right: 6px;
+}
+
+.icon-sm {
+    font-size: 1em;
+    margin-right: 4px;
+}
+
+.badge i {
+    margin-right: 4px;
+}
+
+/* Tabelleninhalt zentrieren */
+table td, table th {
+    text-align: center;
+    vertical-align: middle;
+}
+
+/* Mobile Menü Overlay */
+.mobile-menu-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0,0,0,0.5);
+    z-index: 998;
+    display: none;
+}
+
+.tabs-container.active + .mobile-menu-overlay {
+    display: block;
+}
+
+.total-center {
+    text-align: center;
+    font-size: 1.3rem;
+    font-weight: bold;
+    padding: 1rem 0;
+    color: #facc15; /* z. B. gelb */
+}
+.total-center.positive {
+    color: #16a34a;
+}
+
+.total-center.negative {
+    color: #dc2626;
+}

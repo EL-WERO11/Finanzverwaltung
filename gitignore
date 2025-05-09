@@ -1,0 +1,9 @@
+.DS_Store
+Thumbs.db
+*.log
+*.bak
+*.swp
+*.tmp
+uploads/
+exports/
+db_connect.php
