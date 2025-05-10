@@ -132,4 +132,16 @@ Fork das Repo, schick nen Pull Request oder bastel dir deine eigene Version.
 
 ---
 
+## 📫 Fragen? Wünsche? Feedback?
+
+Du hast eine Idee, brauchst Hilfe oder willst einfach nur Hallo sagen?
+
+👉 **Komm auf meinen Discord-Server** – dort beantworte ich alle Fragen direkt:
+
+[🎮 Zum Discord-Server](https://discord.gg/gagTvTJK3q)
+
+> Alternativ findest du mich auf Discord unter: `kev_1997`
+
+---
+
 <p align="center"><strong>Let’s go – spar dir den Stress und behalt den Überblick!</strong></p>
