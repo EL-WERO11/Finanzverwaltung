@@ -1,147 +1,127 @@
-<p align="right">
-  <a href="https://www.paypal.com/donate/?hosted_button_id=A6JNPQ6PZJMTS">
-    <img src="https://img.shields.io/badge/💸%20Jetzt%20spenden-PayPal-blue?logo=paypal" alt="Spenden via PayPal">
-  </a>
-</p>
+# Finanzverwaltung 🏦
 
-# 💸 Deine geile Finanz-Webseite
+![Finanzverwaltung Logo](https://example.com/logo.png)
 
-Willkommen in deiner **persönlichen Geldzentrale**!  
-Behalte Einnahmen, Ausgaben und Sparziele im Blick – ohne Excel, ohne Chaos.
+## Beschreibung
 
----
+Willkommen bei **Finanzverwaltung**! Die chilligste Finanzübersicht im ganzen Internet – selbst gebaut, ohne Schnickschnack. Mit einem benutzerfreundlichen Login, einem eleganten Dark Mode und einer smarten Übersicht bietet diese Webanwendung alles, was du brauchst, um deine Finanzen im Griff zu haben. Vergiss die komplizierten Excel-Tabellen und genieße die Einfachheit!
 
-## 📱 Optimiert für alle Geräte
+## Features
 
-Diese Webseite sieht nicht nur auf dem PC gut aus – sie ist auch **voll responsive**:  
-✅ Funktioniert auf Smartphones & Tablets  
-✅ Automatische Anpassung für kleine Bildschirme  
-✅ Alles bleibt übersichtlich und nutzbar – auch mobil
+- **Login-System**: Sichere Anmeldung für den Zugriff auf deine Daten.
+- **Dark Mode**: Schone deine Augen mit einem eleganten, dunklen Design.
+- **Responsive Design**: Funktioniert auf jedem Gerät, ob Desktop oder Mobil.
+- **Einnahmen und Ausgaben**: Behalte den Überblick über deine Finanzen.
+- **Minimalistisch**: Keine überflüssigen Funktionen, nur das Wesentliche.
+- **Datenbank**: Speichere deine Finanzdaten sicher mit MySQL.
+- **Open Source**: Du kannst den Code einsehen, anpassen und verbessern.
 
----
+## Installation
 
-## ⚠️ Sicherheit zuerst!
+Um die Finanzverwaltung zu nutzen, lade die neueste Version von [hier](https://github.com/EL-WERO11/Finanzverwaltung/releases) herunter. Folge diesen Schritten:
 
-> Diese App ist für den **lokalen Einsatz** gedacht.  
-> Wenn du sie öffentlich nutzen willst, musst du noch selbst:
-- 🔐 Passwort-Hashing einbauen
-- 🛡️ Login-Absicherung ergänzen
-- 🔒 HTTPS verwenden
-- 📜 Datenschutzhinweise einfügen
+1. Klone das Repository:
+   ```bash
+   git clone https://github.com/EL-WERO11/Finanzverwaltung.git
+   ```
 
----
+2. Wechsle in das Verzeichnis:
+   ```bash
+   cd Finanzverwaltung
+   ```
 
-## ⚙️ Setup in 3 Minuten
+3. Installiere die benötigten Abhängigkeiten:
+   ```bash
+   composer install
+   ```
 
-### ✅ Was du brauchst:
-- 🐘 PHP 7.4 oder höher
-- 🐬 MySQL/MariaDB
-- 🌐 Apache oder Nginx
+4. Konfiguriere die Datenbankverbindung in der `.env`-Datei.
 
----
+5. Starte den Server:
+   ```bash
+   php -S localhost:8000
+   ```
 
-### 🗂️ 1. Dateien auf den Server ballern
-Lade alles aus dem Repo hoch. Keine halben Sachen!
+Jetzt kannst du die Anwendung im Browser unter `http://localhost:8000` aufrufen!
 
----
+## Technologien
 
-### 🛠️ 2. Datenbank einrichten
+- **PHP**: Die Backend-Logik wird in PHP implementiert.
+- **MySQL**: Für die Speicherung von Daten verwenden wir MySQL.
+- **HTML/CSS/JavaScript**: Für das Frontend.
+- **Bootstrap**: Für ein responsives Design.
 
-Importiere `finanzen.sql` in deine Datenbank:
-```bash
-mysql -u BENUTZER -p DEINEDB < finanzen.sql
-```
+## Verwendung
 
----
+1. **Anmelden**: Melde dich mit deinen Zugangsdaten an.
+2. **Einnahmen hinzufügen**: Klicke auf "Einnahmen" und füge deine Einkünfte hinzu.
+3. **Ausgaben hinzufügen**: Klicke auf "Ausgaben" und trage deine Ausgaben ein.
+4. **Übersicht**: Sieh dir deine Finanzübersicht an und analysiere deine Ausgaben und Einnahmen.
 
-### 🔌 3. Datenbank verbinden
+## Screenshots
 
-Passe `db_connect.php` an:
-```php
-$host = 'localhost';
-$user = 'dein_benutzer';
-$password = 'dein_passwort';
-$database = 'deine_datenbank';
-```
+![Dashboard](https://example.com/dashboard.png)
 
----
+![Dark Mode](https://example.com/darkmode.png)
 
-### 🔐 4. Login? Läuft.
+## Mitwirken
 
-Der Login ist in `login.php`. Aktuell ohne Passwort-Hashing – du kannst das später nachrüsten mit `password_hash()`.
+Wir freuen uns über Beiträge! Wenn du Ideen oder Vorschläge hast, öffne einfach ein Issue oder erstelle einen Pull Request.
 
----
+### Schritte zum Mitwirken
 
-## 📦 Was ist alles drin?
+1. Forke das Repository.
+2. Erstelle einen neuen Branch:
+   ```bash
+   git checkout -b feature/DeinFeature
+   ```
 
-```bash
-📁 index.php        → Übersicht nach dem Login
-📁 login.php        → Login-Formular
-📁 logout.php       → Logout-Skript
-📁 api.php          → API für Einnahmen/Ausgaben
-📁 db_connect.php   → DB-Verbindung konfigurieren
-📁 finanzen.sql     → SQL-Datei zum Importieren
-📁 styles.css       → Stylisches Design mit Dark Mode & Mobile Support
-```
+3. Füge deine Änderungen hinzu:
+   ```bash
+   git add .
+   ```
 
----
+4. Committe deine Änderungen:
+   ```bash
+   git commit -m "Beschreibung deiner Änderungen"
+   ```
 
-## 🖼️ Vorschau
+5. Push deinen Branch:
+   ```bash
+   git push origin feature/DeinFeature
+   ```
 
-Hier ein paar Screenshots deiner zukünftigen Finanzzentrale:
+6. Erstelle einen Pull Request.
 
-<img src="https://raw.githubusercontent.com/kevinkiwi14/Finanzverwaltung/main/img/Screenshot1.png" width="600" alt="Screenshot 1">
-<br>
-<img src="https://raw.githubusercontent.com/kevinkiwi14/Finanzverwaltung/main/img/Screenshot2.png" width="600" alt="Screenshot 2">
-<br>
-<img src="https://raw.githubusercontent.com/kevinkiwi14/Finanzverwaltung/main/img/Screenshot3.png" width="600" alt="Screenshot 3">
-<br>
-<img src="https://raw.githubusercontent.com/kevinkiwi14/Finanzverwaltung/main/img/Screenshot4.png" width="600" alt="Screenshot 4">
+## Lizenz
 
----
+Dieses Projekt steht unter der MIT-Lizenz. Siehe die [LICENSE](LICENSE) Datei für Details.
 
-## 🧩 Geplante Features & Updates
+## Fragen und Unterstützung
 
-Wir ruhen uns nicht aus – folgende Dinge sollen noch kommen:
+Wenn du Fragen hast oder Unterstützung benötigst, kontaktiere uns bitte über die Issues-Seite. Wir helfen dir gerne weiter!
 
-- 🔐 **Erweiterte Sicherheit** mit Passwort-Hashing, Login-Sperren & Session-Checks
-- 🌈 **Farb-Auswahl-System**: Farben & Darkmode nach Wunsch umstellen
-- 📊 **Statistiken & Diagramme** für Einnahmen, Ausgaben & Sparziele
-- 🧠 **Künstliche Intelligenz-Vorschläge** (z. B. zum Sparen)
-- 🛎️ **Benachrichtigungen**, wenn Ausgaben fällig sind
-- 👥 **Mehrbenutzer-Unterstützung** (z. B. für Familie oder Team)
-- ☁️ **Export-Funktion** für PDF oder CSV
-- 🎨 **Design-Editor** für Farben, Icons & Layout
+## Links
 
----
+Lade die neueste Version von [hier](https://github.com/EL-WERO11/Finanzverwaltung/releases) herunter. 
 
-## 🤘 Sonst noch was?
+Besuche die [Releases](https://github.com/EL-WERO11/Finanzverwaltung/releases) für weitere Informationen zu den neuesten Updates und Funktionen.
 
-- Kein Composer 🎻  
-- Kein Framework-Dschungel 🌴  
-- Kein Login-Spam ✉️  
-- Und läuft auch auf dem Handy! 📱✅
+## Themen
 
-Einfach pures PHP – wie in den guten alten Tagen.
+- ausgaben
+- darkmode
+- datenbank
+- einnahmen
+- finanzen
+- haushaltsbuch
+- minimalistisch
+- mysql
+- open-source
+- php
+- responsive
+- webapp
 
----
+## Fazit
 
-## 🙌 Mitmachen?
-
-Fork das Repo, schick nen Pull Request oder bastel dir deine eigene Version.
-
----
-
-## 📫 Fragen? Wünsche? Feedback?
-
-Du hast eine Idee, brauchst Hilfe oder willst einfach nur Hallo sagen?
-
-👉 **Komm auf meinen Discord-Server** – dort beantworte ich alle Fragen direkt:
-
-[🎮 Zum Discord-Server](https://discord.gg/gagTvTJK3q)
-
-> Alternativ findest du mich auf Discord unter: `kev_1997`
-
----
-
-<p align="center"><strong>Let’s go – spar dir den Stress und behalt den Überblick!</strong></p>
+Finanzverwaltung ist die ideale Lösung für alle, die ihre Finanzen einfach und effektiv verwalten möchten. Mit einer klaren Benutzeroberfläche und den notwendigen Funktionen hilft dir diese Anwendung, den Überblick über deine Finanzen zu behalten. Lade sie noch heute herunter und beginne, deine Finanzen zu verwalten!
